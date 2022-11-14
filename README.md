@@ -1,2 +1,2 @@
 # wys
-A tool for add subtitle for the movie or the radio
+A tool for add subtitle for the movie or the audio
