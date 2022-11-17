@@ -37,7 +37,17 @@ export function currentLngName() {
     return lng[defaultCode].name
 }
 
+const deviceLanguageLngMapping =  {
+    'zh_CN': 'cn',
+    'en_US': 'en',
+    'en_CN': 'en'
+}
+
+export function findOutTheSuitableLanguage(deviceLanguage) {
+    const lng = deviceLanguageLngMapping[deviceLanguage]
+    return lng === undefined ? 'en' : lng
+}
+
 export function init(dfCode) {
     defaultCode = dfCode
 }
-
