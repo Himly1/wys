@@ -1,17 +1,27 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, Platform, NativeModules } from 'react-native';
 import Home from './components/home';
-import {NativeBaseProvider, Box} from 'native-base'
-import {init} from './international/language'
+import { NativeBaseProvider, Box } from 'native-base'
+import { findOutTheSuitableLanguage, init } from './international/language'
 
 export default function App() {
   return (
     <NativeBaseProvider>
       <Box style={styles.container}>
-        <Home/>
+        <Home />
       </Box>
     </NativeBaseProvider>
   );
+}
+
+function confirmTheOsLanguage() {
+  const deviceLanguage =
+    Platform.OS === 'ios'
+      ? NativeModules.SettingsManager.settings.AppleLocale ||
+      NativeModules.SettingsManager.settings.AppleLanguages[0] //iOS 13
+      : NativeModules.I18nManager.localeIdentifier;
+
+  return findOutTheSuitableLanguage(deviceLanguage)
 }
 
 const styles = StyleSheet.create({
@@ -22,4 +32,5 @@ const styles = StyleSheet.create({
   },
 });
 
-init('cn')
+const lng = confirmTheOsLanguage()
+init(lng)
