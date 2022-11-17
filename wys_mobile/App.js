@@ -2,6 +2,7 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 import Home from './components/home';
 import {NativeBaseProvider, Box} from 'native-base'
+import {init} from './international/language'
 
 export default function App() {
   return (
@@ -20,3 +21,5 @@ const styles = StyleSheet.create({
     width: "100%"
   },
 });
+
+init('cn')
