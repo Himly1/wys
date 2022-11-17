@@ -1,4 +1,5 @@
 export const homePage = {
     nameOfWorkingModeButtion: "homePage.nameOfWorkingModeButton",
-    nameOfExploringModeButton: "homePage.nameOfExploringModeButton"
+    nameOfExploringModeButton: "homePage.nameOfExploringModeButton",
+    nameOfSettingsModeButton: "homePage.nameOfSettingModeButton"
 }

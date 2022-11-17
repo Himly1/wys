@@ -1,4 +1,5 @@
 {
-    "homePage.nameOfWorkingModeButton": "WORKING-MODE",
-    "homePage.nameOfExploringModeButton": "EXPLORING-MODE"
+    "homePage.nameOfWorkingModeButton": "WORKING",
+    "homePage.nameOfExploringModeButton": "EXPLORING",
+    "homePage.nameOfSettingModeButton": "SETTINGS"
 }

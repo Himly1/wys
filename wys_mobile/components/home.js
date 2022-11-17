@@ -1,38 +1,54 @@
-import {View } from 'react-native';
-import React, {useReducer} from 'react';
+import { View } from 'react-native';
+import React, { useReducer } from 'react';
 import WorkingMode from './workingMode';
 import ExploringMode from './exploringMode';
 import Logo from './logo';
-import {Button} from 'native-base'
+import Settings from './settings';
+import { Button } from 'native-base'
 import { FontAwesome } from '@expo/vector-icons';
 
-import {translate, change, lngOptions, currentLngName} from '../international/language'
-import {homePage} from '../international/keyRefs'
+import { translate, change, lngOptions, currentLngName } from '../international/language'
+import { homePage } from '../international/keyRefs'
 
 
 function Home() {
+    const modes = [
+        [
+            homePage.nameOfWorkingModeButtion,
+            <WorkingMode/>
+        ],
+        [
+            homePage.nameOfExploringModeButton,
+            <ExploringMode/>
+        ],
+        [
+            homePage.nameOfSettingsModeButton,
+            <Settings/>
+        ]
+    ]
+
     const [states, setStates] = useReducer((p, n) => {
-        return {...p, ...n}
+        return { ...p, ...n }
     }, {
-        //Means current page is on the workingMode
-        workingMode: true,
+        //Means current page is on 
+        setpOfMode: 0,
         randomValueRepresentChange: true,
-        nameForTheButton: translate(homePage.nameOfWorkingModeButtion)
     })
 
     function changeMode() {
+        const max = modes.length - 1
+        const nextMode = states.setpOfMode === max ? 0 : states.setpOfMode + 1
         setStates({
-            workingMode: !states.workingMode,
-            nameForTheButton: translate(states.workingMode ? homePage.nameOfWorkingModeButtion: homePage.nameOfExploringModeButton)
+            setpOfMode: nextMode
         })
-    }currentLngName
+    }
 
     return (
-        <View style={{height: '100%', width: '100%'}} >
-            <Logo/>
-            <Button onPress={changeMode}  style={{alignSelf: 'center'}} size='sm' leftIcon={<FontAwesome name="exchange" size={24} color="black" />}>{states.nameForTheButton}</Button>
-            <View style={{marginTop: '10%'}}>
-               {states.workingMode ? <WorkingMode/> : <ExploringMode/>}
+        <View style={{ height: '100%', width: '100%' }} >
+            <Logo />
+            <Button onPress={changeMode} style={{ alignSelf: 'center' }} size='sm' leftIcon={<FontAwesome name="exchange" size={24} color="black" />}>{translate(modes[states.setpOfMode][0])}</Button>
+            <View style={{ marginTop: '10%' }}>
+               {modes[states.setpOfMode][1]}
             </View>
         </View>
     )

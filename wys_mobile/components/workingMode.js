@@ -2,7 +2,7 @@ import { Text, View } from "react-native"
 
 function WorkingMode() {
     return (
-        <View style={{marginTop: '3%'}}>
+        <View style={{}}>
         <Text>Working Mode</Text>
     </View>
     )

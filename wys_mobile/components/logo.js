@@ -7,7 +7,7 @@ const styles = StyleSheet.create({
 })
 function Logo() {
     return (
-        <View style={{height: '20%', marginTop: '25%',alignSelf: 'center'} }>
+        <View style={{height: '20%', marginTop: '10%',alignSelf: 'center'} }>
             <Image source={require('../assets/logo.png')}/>
         </View>
     )
