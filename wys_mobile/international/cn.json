@@ -1,5 +1,7 @@
 {
     "homePage.nameOfWorkingModeButton": "工作",
     "homePage.nameOfExploringModeButton": "浏览",
-    "homePage.nameOfSettingModeButton": "设置"
+    "homePage.nameOfSettingModeButton": "设置",
+
+    "settingsPage.labelOfLanguage": "语言"
 }

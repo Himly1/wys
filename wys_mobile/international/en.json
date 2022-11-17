@@ -1,5 +1,7 @@
 {
     "homePage.nameOfWorkingModeButton": "WORKING",
     "homePage.nameOfExploringModeButton": "EXPLORING",
-    "homePage.nameOfSettingModeButton": "SETTINGS"
+    "homePage.nameOfSettingModeButton": "SETTINGS",
+
+    "settingsPage.labelOfLanguage": "LANGUAGE"
 }

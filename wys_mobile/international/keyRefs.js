@@ -3,3 +3,7 @@ export const homePage = {
     nameOfExploringModeButton: "homePage.nameOfExploringModeButton",
     nameOfSettingsModeButton: "homePage.nameOfSettingModeButton"
 }
+
+export const settingsPage = {
+    labelOfLanguage: 'settingsPage.labelOfLanguage'
+}

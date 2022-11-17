@@ -12,6 +12,14 @@ import { homePage } from '../international/keyRefs'
 
 
 function Home() {
+    const [states, setStates] = useReducer((p, n) => {
+        return { ...p, ...n }
+    }, {
+        //Means current page is on 
+        setpOfMode: 0,
+        randomValueRepresentChange: true,
+    })
+
     const modes = [
         [
             homePage.nameOfWorkingModeButtion,
@@ -23,17 +31,13 @@ function Home() {
         ],
         [
             homePage.nameOfSettingsModeButton,
-            <Settings/>
+            <Settings onLngChange={() => {
+                setStates({
+                    randomValueRepresentChange: !states.randomValueRepresentChange
+                })
+            }}/>
         ]
     ]
-
-    const [states, setStates] = useReducer((p, n) => {
-        return { ...p, ...n }
-    }, {
-        //Means current page is on 
-        setpOfMode: 0,
-        randomValueRepresentChange: true,
-    })
 
     function changeMode() {
         const max = modes.length - 1
