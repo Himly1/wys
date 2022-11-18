@@ -49,7 +49,7 @@ function Home() {
     return (
         <Box style={{ height: '100%', width: '100%' }} >
             <Logo />
-            <Button onPress={changeMode} style={{ alignSelf: 'center'}}  leftIcon={<FontAwesome name="exchange" size={24} color="black" />}>{translate(modes[states.setpOfMode][0])}</Button>
+            <Button onPress={changeMode} style={{ alignSelf: 'center', backgroundColor: '#753a88'}}  leftIcon={<FontAwesome name="exchange" size={24} color="black" />}>{translate(modes[states.setpOfMode][0])}</Button>
             <Box style={{ width: '100%', marginTop: '5%' }}>
                {modes[states.setpOfMode][1]}
             </Box>

@@ -77,7 +77,7 @@ function WorkingMode() {
 
     function showWhenTheFileUploaded() {
         const items = [
-            <Text style={{ alignSelf: 'center' }}>{translate(workingModePage.labelOfFileName)}: {states.fileName}</Text>,
+            <Text color={'white'} style={{ alignSelf: 'center'}}>{translate(workingModePage.labelOfFileName)}: {states.fileName}</Text>,
             <Image alignSelf={'center'} style={{ marginTop: '2%' }} source={{ uri: states.thumbnailUri, width: 250, height: 200, alt: 'uploaded', _alt: 'uploaded' }} />,
             <Button onPress={startTransform} leftIcon={<MaterialIcons name="transform" size={24} color="black" />} alignSelf={'center'} style={{marginTop: '2%'}}>{translate(workingModePage.labelOfTransformButton)}</Button>
         ]
@@ -121,7 +121,7 @@ function WorkingMode() {
     function renderMainPage() {
         return (
             <Box>
-                <Heading size={'sm'} style={{ alignSelf: 'center' }}>{translate(workingModePage.labelOfHeading)}</Heading>
+                <Heading color={'white'} size={'sm'} style={{ alignSelf: 'center' }}>{translate(workingModePage.labelOfHeading)}</Heading>
                 <Button size={'sm'} onPress={pickVideo} style={{ alignSelf: 'center' }} leftIcon={<Feather name="upload" size={24} color="black" />}></Button>
                 {states.fileName !== '' && showWhenTheFileUploaded()}
             </Box>

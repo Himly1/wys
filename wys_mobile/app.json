@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "wys_mobile",
-    "slug": "wys_mobile",
+    "name": "wys",
+    "slug": "wys",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/logo.png",
@@ -9,7 +9,7 @@
     "splash": {
       "image": "./assets/logo.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#5b86e5"
     },
     "updates": {
       "fallbackToCacheTimeout": 0
@@ -23,7 +23,7 @@
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/logo.png",
-        "backgroundColor": "#FFFFFF"
+        "backgroundColor": "#5b86e5"
       },
       "permissions": [
         "android.permission.RECORD_AUDIO",

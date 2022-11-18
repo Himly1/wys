@@ -26,7 +26,7 @@ function confirmTheOsLanguage() {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: 'white',
+    backgroundColor: '#5b86e5',
     height: "100%",
     width: "100%"
   },

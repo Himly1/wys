@@ -29,7 +29,7 @@ function Settings({ onLngChange }) {
 
     return (
         <Box>
-            <Text style={{ alignSelf: 'center', fontSize: 20 }}>{translate(settingsPage.labelOfLanguage)}</Text>
+            <Text color={'white'} style={{ alignSelf: 'center'}}>{translate(settingsPage.labelOfLanguage)}</Text>
             <Box alignSelf={'center'} style={{ width: '50%' }}>
                 <Select dropdownIcon={<FontAwesome name="language" size={24} color="black" />} onValueChange={lngChanged} style={{ width: '40%', alignSelf: 'center' }} selectedValue={currentLngName()}>
                     {renderOptions()}
