@@ -1,15 +1,9 @@
-import {View, Image, Text, StyleSheet, ImageBackground} from 'react-native'
-const styles = StyleSheet.create({
-    tinyLogo: {
-        width: 50,
-        height: 50
-    }
-})
+import {Box, Image} from 'native-base'
 function Logo() {
     return (
-        <View style={{height: '20%', marginTop: '10%',alignSelf: 'center'} }>
-            <Image source={require('../assets/logo.png')}/>
-        </View>
+        <Box>
+            <Image style={{marginTop: '7%',alignSelf: 'center'} } source={require('../assets/logo.png')}/>
+        </Box>
     )
 }
 

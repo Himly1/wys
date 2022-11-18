@@ -7,3 +7,10 @@ export const homePage = {
 export const settingsPage = {
     labelOfLanguage: 'settingsPage.labelOfLanguage'
 }
+
+export const workingModePage = {
+    labelOfHeading: 'workingModePage.labelOfHeading',
+    labelOfFileName: 'workingModePage.labelOfFileName',
+    labelOfErrorMessage: 'workingModePage.labelOfErrorMessage',
+    labelOfTransformButton: "workingModePage.labelOfTransformButton"
+}

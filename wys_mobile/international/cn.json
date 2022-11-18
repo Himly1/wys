@@ -3,5 +3,10 @@
     "homePage.nameOfExploringModeButton": "浏览",
     "homePage.nameOfSettingModeButton": "设置",
 
-    "settingsPage.labelOfLanguage": "语言"
+    "settingsPage.labelOfLanguage": "语言",
+
+    "workingModePage.labelOfHeading": "请上传一个音频或视频",
+    "workingModePage.labelOfFileName": "文件名",
+    "workingModePage.labelOfErrorMessage": "出现了一个错误，请在github页面反馈",
+    "workingModePage.labelOfTransformButton": "转存"
 }

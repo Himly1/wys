@@ -3,5 +3,10 @@
     "homePage.nameOfExploringModeButton": "EXPLORING",
     "homePage.nameOfSettingModeButton": "SETTINGS",
 
-    "settingsPage.labelOfLanguage": "LANGUAGE"
+    "settingsPage.labelOfLanguage": "LANGUAGE",
+
+    "workingModePage.labelOfHeading": "Upload an audio or video please",
+    "workingModePage.labelOfFileName": "File Name",
+    "workingModePage.labelOfErrorMessage": "There is an error,Feedback it on the github page please",
+    "workingModePage.labelOfTransformButton": "Transform"
 }
