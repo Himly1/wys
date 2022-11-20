@@ -1,8 +1,8 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Platform, NativeModules } from 'react-native';
+import { StyleSheet, Platform, NativeModules } from 'react-native';
 import Home from './components/home';
 import { NativeBaseProvider, Box } from 'native-base'
 import { findOutTheSuitableLanguage, init } from './international/language'
+import {init as fileManagerInit} from './filesManager'
 
 export default function App() {
   return (
@@ -34,3 +34,4 @@ const styles = StyleSheet.create({
 
 const lng = confirmTheOsLanguage()
 init(lng)
+fileManagerInit()

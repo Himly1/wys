@@ -12,5 +12,6 @@ export const workingModePage = {
     labelOfHeading: 'workingModePage.labelOfHeading',
     labelOfFileName: 'workingModePage.labelOfFileName',
     labelOfErrorMessage: 'workingModePage.labelOfErrorMessage',
-    labelOfTransformButton: "workingModePage.labelOfTransformButton"
+    labelOfTransformButton: "workingModePage.labelOfTransformButton",
+    labelOfHeadingOnWorking: 'workingModePage.labelOfHeadingOnWorking'
 }

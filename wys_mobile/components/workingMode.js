@@ -1,18 +1,23 @@
-import { Button, IconButton, Image, Heading, Alert, VStack, HStack, CloseIcon, Box, Text } from "native-base";
+import { Button, IconButton, Progress, Image, Heading, Alert, VStack, HStack, CloseIcon, Box, Text, View } from "native-base";
 import { useReducer } from "react";
 import { Feather } from '@expo/vector-icons';
 import * as ImagePicker from 'expo-image-picker'
 import * as VideoThumbnails from 'expo-video-thumbnails';
-import {translate} from '../international/language'
-import {workingModePage} from '../international/keyRefs'
+import { translate } from '../international/language'
+import { workingModePage } from '../international/keyRefs'
 import { MaterialIcons } from '@expo/vector-icons';
+import { addSubtitle } from '../tensorflow/videoSubtitleAdder'
+import { AntDesign } from '@expo/vector-icons';
+
 
 function WorkingMode() {
     const [states, setStates] = useReducer((p, n) => {
         return { ...p, ...n }
     }, {
         working: false,
+        progressStep: undefined,
         progress: 0,
+        previosWorkDone: undefined,
         filePath: '',
         fileName: '',
         thumbnailUri: '',
@@ -39,8 +44,9 @@ function WorkingMode() {
 
     async function confirmTheFileName(uri) {
         const chunks = uri.split('/')
-        console.log(`The length of the chunks is ${chunks.length}`)
-        return chunks[chunks.length - 1]
+        const name = chunks[chunks.length - 1]
+        const theChunks = name.split('-')
+        return theChunks[theChunks.length - 1]
     }
 
     async function pickVideo() {
@@ -60,7 +66,7 @@ function WorkingMode() {
         if (!rs.canceled) {
             const asset = rs.assets[0]
             const fileName = confirmTheFileName(asset.uri)['_z']
-            console.log(`The fileName is ${JSON.stringify(fileName)}`)
+            
             const uri = await takeTheUriOfTheFrameOfTheVideo(asset)
             setStates({
                 filePath: asset.uri,
@@ -71,18 +77,60 @@ function WorkingMode() {
 
     }
 
-    function startTransform() {
+    function determineTheProgressWhichIsBoolean(progress) {
+        return progress === true ? 100 : 55 
+    }
+
+    async function startTransform() {
+        setStates({
+            working: true
+        })
+        const finalVideoUri = await addSubtitle(states.filePath, states.fileName, (stepOfTheName, progress, error) => {
+            const typeOfTheProgress = typeof progress
+            const realProgress = typeOfTheProgress === 'boolean' ? determineTheProgressWhichIsBoolean(progress) : parseInt(progress)
+            setStates({
+                progressStep: stepOfTheName,
+                progress: realProgress,
+                error: error === undefined || error === null ? undefined : error
+            })
+        }).then(rs => {
+            setStates({
+                progress: 100
+            })
+        })
         
+        setTimeout(() => {
+            setStates({
+                working: false,
+                progressStep: undefined,
+                progress: 0,
+                previosWorkDone: finalVideoUri,
+                filePath: '',
+                fileName: '',
+                thumbnailUri: '',
+                error: undefined
+            })
+        }, 1000);
+    }
+
+    function renderTheProgressbar() {
+        return (
+            <Box>
+                <Text style={{ fontSize: 16 }} color={'white'} alignSelf={'center'}>Working on: {states.progressStep}</Text>
+                <Progress alignSelf={'center'} width={'80%'} colorScheme={'emerald'} value={states.progress}></Progress>
+            </Box>
+        )
     }
 
     function showWhenTheFileUploaded() {
-        const items = [
-            <Text color={'white'} style={{ alignSelf: 'center'}}>{translate(workingModePage.labelOfFileName)}: {states.fileName}</Text>,
-            <Image alignSelf={'center'} style={{ marginTop: '2%' }} source={{ uri: states.thumbnailUri, width: 250, height: 200, alt: 'uploaded', _alt: 'uploaded' }} />,
-            <Button onPress={startTransform} leftIcon={<MaterialIcons name="transform" size={24} color="black" />} alignSelf={'center'} style={{marginTop: '2%'}}>{translate(workingModePage.labelOfTransformButton)}</Button>
-        ]
-
-        return items
+        return (
+            <View>
+                <Text color={'white'} style={{ alignSelf: 'center', fontSize: 16 }}>{translate(workingModePage.labelOfFileName)}: {states.fileName}</Text>
+                <Image alignSelf={'center'} style={{ marginTop: '2%' }} source={{ uri: states.thumbnailUri, width: 250, height: 200, alt: 'uploaded', _alt: 'uploaded' }} />
+                {!states.working && <Button onPress={startTransform} leftIcon={<MaterialIcons name="transform" size={24} color="black" />} alignSelf={'center'} style={{ marginTop: '2%' }}>{translate(workingModePage.labelOfTransformButton)}</Button>}
+                {states.working && renderTheProgressbar()}
+            </View>
+        )
     }
 
     function renderErrorMessage() {
@@ -121,8 +169,8 @@ function WorkingMode() {
     function renderMainPage() {
         return (
             <Box>
-                <Heading color={'white'} size={'sm'} style={{ alignSelf: 'center' }}>{translate(workingModePage.labelOfHeading)}</Heading>
-                <Button size={'sm'} onPress={pickVideo} style={{ alignSelf: 'center' }} leftIcon={<Feather name="upload" size={24} color="black" />}></Button>
+                <Heading color={'white'} size={'sm'} style={{ alignSelf: 'center' }}>{translate(states.working ? workingModePage.labelOfHeadingOnWorking : workingModePage.labelOfHeading)}</Heading>
+                <Button disabled={states.working} size={'sm'} onPress={pickVideo} style={{ alignSelf: 'center' }} leftIcon={states.working ? <AntDesign name="close" size={24} color="black" /> : <Feather name="upload" size={24} color="black" />}></Button>
                 {states.fileName !== '' && showWhenTheFileUploaded()}
             </Box>
         )

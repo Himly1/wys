@@ -8,5 +8,6 @@
     "workingModePage.labelOfHeading": "请上传一个音频或视频",
     "workingModePage.labelOfFileName": "文件名",
     "workingModePage.labelOfErrorMessage": "出现了一个错误，请在github页面反馈",
-    "workingModePage.labelOfTransformButton": "转存"
+    "workingModePage.labelOfTransformButton": "转存",
+    "workingModePage.labelOfHeadingOnWorking": "请等待转存完毕"
 }

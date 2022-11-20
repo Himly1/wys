@@ -8,5 +8,6 @@
     "workingModePage.labelOfHeading": "Upload an audio or video please",
     "workingModePage.labelOfFileName": "File Name",
     "workingModePage.labelOfErrorMessage": "There is an error,Feedback it on the github page please",
-    "workingModePage.labelOfTransformButton": "Transform"
+    "workingModePage.labelOfTransformButton": "Transform",
+    "workingModePage.labelOfHeadingOnWorking": "Wait the transform job to be finished please"
 }
