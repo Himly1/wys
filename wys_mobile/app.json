@@ -18,7 +18,11 @@
       "./assets/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "infoPlist": {
+        "NSPhotoLibraryUsageDescription": "Allow wys to access your photos",
+        "NSPhotoLibraryAddUsageDescription": "Allow wys to save photos."
+      }
     },
     "android": {
       "adaptiveIcon": {
@@ -28,7 +32,8 @@
       "permissions": [
         "android.permission.RECORD_AUDIO",
         "android.permission.READ_EXTERNAL_STORAGE",
-        "android.permission.WRITE_EXTERNAL_STORAGE"
+        "android.permission.WRITE_EXTERNAL_STORAGE",
+        "android.permission.ACCESS_MEDIA_LOCATION"
       ],
       "package": "org.zhengMa"
     },
@@ -58,11 +63,13 @@
           }
         }
       ],
-      ["@config-plugins/ffmpeg-kit-react-native"]
+      [
+        "@config-plugins/ffmpeg-kit-react-native"
+      ]
     ],
     "extra": {
       "eas": {
-        "projectId": "990bb34a-7357-42a1-a239-c0d313af8f9c"
+        "projectId": "109b7202-9a46-40e2-8cab-c0fbd1fb83c5"
       }
     }
   }
