@@ -49,7 +49,16 @@
           "savePhotosPermission": "Allow wys to save photos.",
           "isAccessMediaLocationEnabled": true
         }
-      ]
+      ],
+      [
+        "expo-build-properties",
+        {
+          "android": {
+            "minSdkVersion": 24
+          }
+        }
+      ],
+      ["@config-plugins/ffmpeg-kit-react-native"]
     ],
     "extra": {
       "eas": {
