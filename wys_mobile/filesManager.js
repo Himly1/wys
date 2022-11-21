@@ -38,7 +38,10 @@ export async function init() {
   for (const [desc, dirName] of makeDirs) {
     console.info(`Creating the dir ${dirName} for the purpose of ${desc}`)
     try {
-      await fileSystem.makeDirectoryAsync(dirName, { intermediates: false })
+      const dirMeta = await fileSystem.getInfoAsync(dirName)
+      if(!dirMeta.isDirectory) {
+        await fileSystem.makeDirectoryAsync(dirName, { intermediates: false })
+      }
       console.info(`Created the dir ${dirName} for the purpose of ${desc} successfully!`)
     } catch (err) {
       console.error(`Faield to create the dir ${dirName} for the purpose ${desc}. The error is: ${err}`)
