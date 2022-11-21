@@ -1,10 +1,23 @@
-import { Text, View } from "react-native"
+import { Text, Box } from "native-base"
+import { useEffect, useState, } from "react"
+import {audioExtrater} from '../filesManager'
 
 function ExploringMode() {
+    const [audioFiles, setAudioFiles] = useState([])
+
+    useEffect(() => {
+        const retreiveNames = async () => {
+            const files = await audioExtrater.getTheListOfTheAudioFileNames()
+            setAudioFiles(files)
+        }
+
+        retreiveNames()
+    })
+
     return (
-        <View>
-            <Text>ExploringMode</Text>
-        </View>
+        <Box>
+            <Text>{audioFiles.length}</Text>
+        </Box>
     )
 }
 
