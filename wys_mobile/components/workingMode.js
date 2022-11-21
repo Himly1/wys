@@ -66,7 +66,7 @@ function WorkingMode() {
         if (!rs.canceled) {
             const asset = rs.assets[0]
             const fileName = confirmTheFileName(asset.uri)['_z']
-            
+
             const uri = await takeTheUriOfTheFrameOfTheVideo(asset)
             setStates({
                 filePath: asset.uri,
@@ -78,7 +78,20 @@ function WorkingMode() {
     }
 
     function determineTheProgressWhichIsBoolean(progress) {
-        return progress === true ? 100 : 55 
+        return progress === true ? 100 : 55
+    }
+
+    function determineTheProgressStepName(stepOfTheName) {
+        const metas = [
+            ['extract the audio from video', workingModePage.labelOfStepOfExtractingAudio],
+            ['translate the audio to text', workingModePage.labelOfStepOfTranslateToText],
+            ['Add the subtitle to the video', workingModePage.labelOfStepOfAddingSubtitle]
+        ]
+
+        return metas.reduce((rs, [name, languageKey]) => {
+            rs = name === stepOfTheName ? languageKey : rs
+            return rs
+        }, '')
     }
 
     async function startTransform() {
@@ -89,7 +102,7 @@ function WorkingMode() {
             const typeOfTheProgress = typeof progress
             const realProgress = typeOfTheProgress === 'boolean' ? determineTheProgressWhichIsBoolean(progress) : parseInt(progress)
             setStates({
-                progressStep: stepOfTheName,
+                progressStep: determineTheProgressStepName(stepOfTheName),
                 progress: realProgress,
                 error: error === undefined || error === null ? undefined : error
             })
@@ -98,7 +111,7 @@ function WorkingMode() {
                 progress: 100
             })
         })
-        
+
         setTimeout(() => {
             setStates({
                 working: false,
@@ -116,7 +129,7 @@ function WorkingMode() {
     function renderTheProgressbar() {
         return (
             <Box>
-                <Text style={{ fontSize: 16 }} color={'white'} alignSelf={'center'}>Working on: {states.progressStep}</Text>
+                <Text style={{ fontSize: 16 }} color={'white'} alignSelf={'center'}>{translate(workingModePage.labelOfProgressName)}: {translate(states.progressStep)}</Text>
                 <Progress alignSelf={'center'} width={'80%'} colorScheme={'emerald'} value={states.progress}></Progress>
             </Box>
         )
