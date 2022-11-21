@@ -9,5 +9,9 @@
     "workingModePage.labelOfFileName": "文件名",
     "workingModePage.labelOfErrorMessage": "出现了一个错误，请在github页面反馈",
     "workingModePage.labelOfTransformButton": "转存",
-    "workingModePage.labelOfHeadingOnWorking": "请等待转存完毕"
+    "workingModePage.labelOfHeadingOnWorking": "请等待转存完毕",
+    "workingModePage.labelOfStepOfExtractingAudio": "从视频中提取音频",
+    "workingModePage.labelOfStepOfTranslateToText": "将音频翻译成文字",
+    "workingModePage.labelOfStepOfAddingSubtitle": "在视频中加入字幕",
+    "workingModePage.labelOfProgressName": "工作中"
 }

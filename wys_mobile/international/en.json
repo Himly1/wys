@@ -9,5 +9,9 @@
     "workingModePage.labelOfFileName": "File Name",
     "workingModePage.labelOfErrorMessage": "There is an error,Feedback it on the github page please",
     "workingModePage.labelOfTransformButton": "Transform",
-    "workingModePage.labelOfHeadingOnWorking": "Wait the transform job to be finished please"
+    "workingModePage.labelOfHeadingOnWorking": "Wait the transform job to be finished please",
+    "workingModePage.labelOfStepOfExtractingAudio": "Extracting the audio from the video",
+    "workingModePage.labelOfStepOfTranslateToText": "Translating the speech to text",
+    "workingModePage.labelOfStepOfAddingSubtitle": "Adding the subtitle to the video",
+    "workingModePage.labelOfProgressName": "Working on"
 }

@@ -13,5 +13,9 @@ export const workingModePage = {
     labelOfFileName: 'workingModePage.labelOfFileName',
     labelOfErrorMessage: 'workingModePage.labelOfErrorMessage',
     labelOfTransformButton: "workingModePage.labelOfTransformButton",
-    labelOfHeadingOnWorking: 'workingModePage.labelOfHeadingOnWorking'
+    labelOfHeadingOnWorking: 'workingModePage.labelOfHeadingOnWorking',
+    labelOfStepOfExtractingAudio: 'workingModePage.labelOfStepOfExtractingAudio',
+    labelOfStepOfTranslateToText: 'workingModePage.labelOfStepOfTranslateToText',
+    labelOfStepOfAddingSubtitle: 'workingModePage.labelOfStepOfAddingSubtitle',
+    labelOfProgressName: "workingModePage.labelOfProgressName"
 }
