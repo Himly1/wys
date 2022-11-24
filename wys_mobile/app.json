@@ -66,6 +66,12 @@
       ],
       [
         "@config-plugins/ffmpeg-kit-react-native"
+      ],
+      [
+        "expo-document-picker",
+        {
+          "iCloudContainerEnvironment": "Production"
+        }
       ]
     ],
     "extra": {
